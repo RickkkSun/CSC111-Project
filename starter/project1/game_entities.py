@@ -44,7 +44,7 @@ class Location:
 
         # TODO Add more details here about the initialization if needed
         """
-
+as
         self.id_num = location_id
         self.brief_description = brief_description
         self.long_description = long_description
