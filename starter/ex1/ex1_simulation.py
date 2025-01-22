@@ -120,16 +120,12 @@ class AdventureGameSimulation:
         self._events = EventList()
         self._game = SimpleAdventureGame(game_data_file, initial_location_id)
 
-        initial_location = self._game.get_location()
-        first_event = Event(
-            id_num=initial_location.id_num,
-            description=initial_location.description
-        )
-        self._events.add_event(first_event)
         # Hint: self._game.get_location() gives you back the current location
+        self._events.add_event(Event(self._game.get_location().id_num, self._game.get_location().description,
+                                     None, None, None), None)
 
-        self.generate_events(commands, initial_location)
         # Hint: Call self.generate_events with the appropriate arguments
+        self.generate_events(commands, self._game.get_location())
 
     def generate_events(self, commands: list[str], current_location: Location) -> None:
         """Generate all events in this simulation.
@@ -139,22 +135,15 @@ class AdventureGameSimulation:
         - all commands in the given list are valid commands at each associated location in the game
         """
 
+        # Hint: current_location.available_commands[command] will return the next location ID
+        # which executing <command> while in <current_location_id> leads to
         for command in commands:
-            # Retrieve the next location ID using the command
-            next_location_id = current_location.available_commands[command]
-
-            # Retrieve the Location object for the next location
-            next_location = self._game.get_location(next_location_id)
-
-            # Create a new Event and add it to the EventList
-            event = Event(
-                id_num=next_location.id_num,
-                description=next_location.description
-            )
-            self._events.add_event(event, command)
-
-            # Move to the next location
-            current_location = next_location
+            if command in current_location.available_commands:
+                next_id = current_location.available_commands[command]
+                next_location = self._game.get_location(next_id)
+                new_events = Event(next_location.id_num, next_location.description, command, None, None)
+                self._events.add_event(new_events, command)
+                current_location = next_location
 
     def get_id_log(self) -> list[int]:
         """
@@ -195,4 +184,7 @@ if __name__ == "__main__":
     # (Delete the "#" and space before each line.)
     # IMPORTANT: keep this code indented inside the "if __name__ == '__main__'" block
     import python_ta
-    python_ta.check_all(config={'max-line-length': 120, 'disable': ['R1705', 'E9998', 'E9999']})
+    python_ta.check_all(config={
+        'max-line-length': 120,
+        'disable': ['R1705', 'E9998', 'E9999']
+    })
