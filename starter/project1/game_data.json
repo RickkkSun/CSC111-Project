@@ -9,7 +9,69 @@
         "go south": 4,
         "go east": 2
       },
-      "items": ["toonie"]
+      "items": ["toonie", "tcard"]
+    },
+    {
+      "id": 2,
+      "name": "Bahen 2F",
+      "brief_description": "You are on the second floor of the Bahen Center. There are stairs to the West, and an elevator to first floor. You see something special on the ground -- looks like a treasure chest?",
+      "long_description": "You are on the second floor of the Bahen Center. It's usually filled with engineering students catching up deadlines, but today is eerily quiet. Only a few students are studying at the table near the doors. You better not disturb them. One student is rushing down the corridor, wearing a heavy-looking backpack and carrying a textbook in their arms. There are stairs to the third floor to the West, and an elevator to the first floor to the East",
+      "available_commands": {
+        "go west": 4,
+        "go east": 2
+      },
+      "items": ["bronze_chest"]
+    },
+    {
+      "id": 3,
+      "name": "Bahen 3F",
+      "brief_description": "You are on the third floor of the Bahen Center. There are stairs to the West, and an elevator to first floor. You see someone familiar there -- is that Professor Sadia?",
+      "long_description": "You are on the third floor of the Bahen Center. It's usally filled with computer science students working on their projects, but today is eerily quiet. Only a few students are studying at the table near the doors. You better not disturb them. Professor Sadia is standing at the other side of the floor. There are stairs to the fourth floor to the West but with an inaccessible sign on it, and an elevator to the second floor to the East",
+      "available_commands": {
+        "go west": 4,
+        "go east": 2
+      },
+      "people": ["professor_sadia"]
+    },
+    {
+      "id": 4,
+      "name": "Bahen 4F",
+      "brief_description": "You are on the forbiddened fourth floor of the Bahen Center. There's nothing here but you. There is an elevator the third floor to the East",
+      "long_description": "You are on the forbiddened fourth floor of the Bahen Center. There's nothing here but you. There is an elevator the third floor to the East",
+      "available_commands": {
+        "go east": 2
+      }
+    },
+    {
+      "id": 5,
+      "name": "Robarts Library 1F",
+      "brief_description": "You are on the first floor of the Robarts Library. There are elevators to second floor to the North, and an exit from the building to the St George Street to the East.",
+      "long_description": "You are on the first floor of the Robarts Library. It's usually crowded at this time of the day, but today it's eerily quiet. Only a few students are studying at the table near the elevators. You better not disturb them. One student is rushing down the corridor, wearing a heavy-looking backpack and carrying a textbook in their arms. There are elevators to second floor to the North, and an exit from the building to St. George street to the East.",
+      "available_commands": {
+        "go north": 4,
+        "go east": 2
+      }
+    },
+    {
+      "id": 6,
+      "name": "Robarts Library 2F",
+      "brief_description": "You are on the second floor of the Robarts Library. There are elevators to third floor to the North, and stairs to the first floor to the East.",
+      "long_description": "You are on the second floor of the Robarts Library. It's usually crowded at this time of the day, but today it's eerily quiet. Only a few students are studying at the table near the elevators. You better not disturb them. One student is rushing down the corridor, wearing a heavy-looking backpack and carrying a textbook in their arms. There are elevators to third floor to the North, and stairs to the first floor to the East.",
+      "availble_commands": {
+        "go north": 4,
+        "go east": 2
+      }
+    }
+    ,
+    {
+      "id": 7,
+      "name": "Robarts Library 2F",
+      "brief_description": "You are on the third floor of the Robarts Library. There are stairs to the first floor to the East.",
+      "long_description": "You are on the third floor of the Robarts Library. It's usually crowded at this time of the day, but today it's eerily quiet. Only a few students are studying at the table near the elevators. You better not disturb them. One student is rushing down the corridor, wearing a heavy-looking backpack and carrying a textbook in their arms. There are stairs to the second floor to the East.",
+      "availble_commands": {
+        "go north": 4,
+        "go east": 2
+      }
     }
   ],
   "items": [
