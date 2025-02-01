@@ -35,7 +35,6 @@ class AdventureGameSimulation:
     _game: AdventureGame
     _events: EventList
 
-    # TODO: Copy/paste your code from ex1_simulation below, and make adjustments as needed
     def __init__(self, game_data_file: str, initial_location_id: int, commands: list[str]) -> None:
         """Initialize a new game simulation based on the given game data, that runs through the given commands.
 
@@ -46,11 +45,12 @@ class AdventureGameSimulation:
         self._events = EventList()
         self._game = AdventureGame(game_data_file, initial_location_id)
 
-        # TODO: Add first event (initial location, no previous command)
         # Hint: self._game.get_location() gives you back the current location
-
-        # TODO: Generate the remaining events based on the commands and initial location
+        initial_location = self._game.get_location()
+        first_event = Event(initial_location.id_num, initial_location.brief_description, "", None, None)
+        self._events.add_event(first_event)
         # Hint: Call self.generate_events with the appropriate arguments
+        self.generate_events(commands, initial_location)
 
     def generate_events(self, commands: list[str], current_location: Location) -> None:
         """Generate all events in this simulation.
@@ -60,10 +60,17 @@ class AdventureGameSimulation:
         - all commands in the given list are valid commands at each associated location in the game
         """
 
-        # TODO: Complete this method as specified. For each command, generate the event and add
-        #  it to self._events.
         # Hint: current_location.available_commands[command] will return the next location ID
         # which executing <command> while in <current_location_id> leads to
+        for command in commands:
+            if command in current_location.available_commands:
+                next_id = current_location.available_commands[command]
+                next_location = self._game.get_location(next_id)
+
+                new_events = Event(next_location.id_num, next_location.brief_description, command, None, None)
+
+                self._events.add_event(new_events, command)
+                current_location = next_location
 
     def get_id_log(self) -> list[int]:
         """
@@ -110,8 +117,47 @@ if __name__ == "__main__":
     # })
 
     # TODO: Modify the code below to provide a walkthrough of commands needed to win and lose the game
-    win_walkthrough = []  # Create a list of all the commands needed to walk through your game to win it
-    expected_log = []  # Update this log list to include the IDs of all locations that would be visited
+    win_walkthrough = [
+        "go to Bahen Center 1F",
+        "enter room",
+        "pick up Professor S' photo album",
+        "exit room",
+        "enter room",
+        "pick up Professor S' camera",
+        "exit room",
+        "go upstairs",
+        "enter room",
+        "pick up Diary: CSC110's memory",
+        "exit room"
+        "enter room",
+        "pick up Diary: CSC111's memory",
+        "pick up your TCard"
+        "exit room",
+        "go upstaris",
+        "enter room",
+        "pick up USB STICK",
+        "exit room",
+        "go downstairs",
+        "go downstairs",
+        "go back to Home",
+        "go to Robarts Library",
+        "take elevator"
+    ]
+    # Create a list of all the commands needed to walk through your game to win it
+    expected_log = [0,
+                    1,
+                    101,
+                    102,
+                    2,
+                    201,
+                    202,
+                    3,
+                    301,
+                    4,
+                    5,
+                    501
+                    ]
+    # Update this log list to include the IDs of all locations that would be visited
     # Uncomment the line below to test your walkthrough
     assert expected_log == AdventureGameSimulation('game_data.json', 1, win_walkthrough)
 

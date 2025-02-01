@@ -19,6 +19,7 @@ please consult our Course Syllabus.
 This file is Copyright (c) 2025 CSC111 Teaching Team
 """
 from dataclasses import dataclass
+from typing import Optional
 
 
 @dataclass
@@ -26,10 +27,16 @@ class Location:
     """A location in our text adventure game world.
 
     Instance Attributes:
-        - # TODO Describe each instance attribute here
+        id: a number representing the location id
+        name: the name of the location
+        brief_description: a brief description of the location
+        long_description: a long description of the location shown when it's the first time been in this location
+        available_commands: available commands in this location
+        items: items that can be found in this location
+        visited: show whether if the player have visited this location already or not
 
     Representation Invariants:
-        - # TODO Describe any necessary representation invariants
+        id > 0
     """
 
     # This is just a suggested starter class for Location.
@@ -37,12 +44,20 @@ class Location:
     #
     # The only thing you must NOT change is the name of this class: Location.
     # All locations in your game MUST be represented as an instance of this class.
+    id_num: int
+    name: str
+    brief_description: str
+    long_description: str
+    available_commands: dict[str, int]
+    items: list[str]
+    unlock_condition: Optional[str]
+    visited: bool
+    steps_allowed: Optional[int]
 
     def __init__(self, location_id, brief_description, long_description, available_commands, items,
-                 visited=False) -> None:
+                 unlock_condition, visited, steps_allowed) -> None:
         """Initialize a new location.
 
-        # TODO Add more details here about the initialization if needed
         """
 
         self.id_num = location_id
@@ -50,7 +65,9 @@ class Location:
         self.long_description = long_description
         self.available_commands = available_commands
         self.items = items
-        self.visited = visited
+        self.unlock_condition = unlock_condition
+        self.visited = False
+        self.steps_allowed = steps_allowed
 
 
 @dataclass
@@ -58,10 +75,15 @@ class Item:
     """An item in our text adventure game world.
 
     Instance Attributes:
-        - # TODO Describe each instance attribute here
+        name: the name of the item
+        start_position: the starting position of the player when entering the location where the item is
+        target_position: the posiiton of the item
+        target_points: the points awarded when obtaining the item
 
     Representation Invariants:
-        - # TODO Describe any necessary representation invariants
+        start_position > 0
+        target_position > 0
+        target_points > 0
     """
 
     # NOTES:
@@ -73,15 +95,28 @@ class Item:
     # All item objects in your game MUST be represented as an instance of this class.
 
     name: str
+    description: str
     start_position: int
     target_position: int
     target_points: int
+    coins: int
+    function: Optional[str]
 
+    def __init__(self, name, description, starter_position, target_position, target_points, coins, function):
+
+        self.name = name
+        self.description = description
+        self.start_position = starter_position
+        self.target_position = target_position
+        self.target_points = target_points
+        self.coins = 0
+        self.function = function
 
 # Note: Other entities you may want to add, depending on your game plan:
 # - Puzzle class to represent special locations (could inherit from Location class if it seems suitable)
 # - Player class
 # etc.
+
 
 if __name__ == "__main__":
     pass
