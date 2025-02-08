@@ -1,209 +1,106 @@
 {
   "locations": [
     {
-      "id" : 0,
-      "name" : "Home",
-      "brief_description" : "Your lovely home!!! You always wanna sleep in your bed when the time you know you have to study for exams and papers. AND, IT IS NOT THE TIME TO SLEEP!!!",
-      "available_commands" : {
-        "go to Bahen Center 1F" : 0,
-        "go to Robarts Library" : 1
+      "id": 0,
+      "name": "Home",
+      "brief_description": "Your cozy home",
+      "long_description": "Your lovely home!!! You always wanna sleep in your bed when the time you know you have to study for exams and papers. AND, IT IS NOT TIME TO SLEEP!!!",
+      "available_commands": {
+        "go to Bahen Center 1F": 1,
+        "go to Robert Library": 4
       }
     },
     {
       "id": 1,
       "name": "Bahen Centre 1F",
       "brief_description": "You are on the first floor of the Bahen Center. Be ready for your journey!!!",
-      "long_description": "You are on the first floor of the Bahen Center. Now you were a first year student in computer science!!! It's usually crowded at this time of the day, but today it's eerily quiet. Only a few students are studying at the table near the doors. You better not disturb them. One student is rushing down the corridor, wearing a heavy-looking backpack and carrying a textbook in their arms. There are elevators to the West, and an exit from the building to St. George street to the East.",
+      "long_description": "You are on the first floor of the Bahen Center. Now you are a first-year student in computer science!",
       "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "go upstairs": 1,
-        "enter room": "e",
-        "go back to Home": "f"
+        "go north": 2,
+        "go east": 3,
+        "go west": 0,
+        "go south": 4,
+        "go upstairs": 2,
+        "enter room": 101,
+        "go back home": 0
       },
-      "rooms contained": ["BA1100","BA1110","BA1999"],
-      "non character players": "Professor_S"
-    },
-    {
-      "id": 101,
-      "name": "BA1100",
-      "Lose_and_you_come_back_again_description": "Again, find it! This is our beginning of memory.YOU ARE DETERMINED",
-      "Win_or/and_you_com_back_again_description": "Congratulations, you've found it! Don't stop, the journey is really long",
-      "First_time_here_description": "Your first CSC110 lecture was here. People around were feeling curious about their first computer science lecture! Remember? Professor_S loves taking photos with cats, her photo album should be here. Find it!",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "pick up Professor S' photo album": "e",
-        "exit room": 0
-      },
-      "steps allowed": 16,
-      "items": "Professor_S's photo album"
-    },
-    {
-      "id": 102,
-      "name": "BA1110",
-      "Lose_and_you_come_back_again_description": "Again, find it! This is our beginning of memory. DETERMINATION",
-      "Win_or/and_you_com_back_again_description": "Congratulations, you've found it! Don't stop, the journey is really long",
-      "First_time_here_description": "Your first CSC111 lecture was here. It was just days ago. You feel really lucky after you passed CSC110, however, someone did not... OK, it's time to find the camera",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "pick up Professor S' camera": "e",
-        "exit room": 0
-      },
-      "steps allowed": 16,
-      "items": "Professor_S's Camera"
-    },
-    {
-      "id": 103,
-      "name": "BA1999",
-      "Lose_and_you_come_back_again_description": "IN MY ABSOLUTE WAY, no more puzzles",
-      "Win_or/and_you_com_back_again_description": "Congratulations!!! Now I believe you have the power to win the game",
-      "First_time_here_description": "You never hear about this room before, it is really dark. You feel overwhelmed somehow. I have to tell you that the puzzle here is challenging, be prepared!",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "exit room": 0
-      },
-      "steps allowed": "TBD",
-      "items": "Pie",
-      "CONDITION NEEDED TO UNLOCK THIS STAGE": "key to BA1999"
+      "rooms_contained": ["BA1100", "BA1110", "BA1999"],
+      "npc": "Professor_S"
     },
     {
       "id": 2,
       "name": "Bahen Centre 2F",
-      "brief_description": "You are on the second floor of the Bahen Center. Those devices and computers... you don't care. YOU DO CARE ABOUT THE MEMORY",
-      "long_description": "You are on the second floor of the Bahen Center. Computer Science Specialist is already here! You've found those courses in second year really challenging. But don't worry, there are a lot of more resources here and more opportunities here to guide you.",
+      "brief_description": "You are on the second floor of the Bahen Center.",
+      "long_description": "You are on the second floor of the Bahen Center. You find students discussing assignments and studying.",
       "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "go upstairs": 1,
-        "go downstairs": 0,
-        "enter room": "e"
+        "go north": 5,
+        "go east": 6,
+        "go west": 1,
+        "go south": 1,
+        "go downstairs": 1,
+        "enter room": 201
       },
-      "rooms contained": ["BA2024","BA2025"]
-    },
-    {
-      "id": 201,
-      "name": "BA2024",
-      "Lose_and_you_come_back_again_description": "Don't lose hope, here are some many people around you and help you! KEEP DETERMINED",
-      "Win_or/and_you_com_back_again_description": "Congratulations, you've found it! Don't stop, the journey is really long",
-      "First_time_here_description": "You feel quite confident to become a Computer Science Specialist! Look at those seniors, they are so powerful in this class. But most importantly, don't forget your memory with your first year students, teachers and friends. If you lose it, then find it!",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "exit room": 0
-      },
-      "steps allowed": 20,
-      "items": "Diary: CSC110's Memory"
-    },
-    {
-      "id": 202,
-      "name": "BA2025",
-      "Lose_and_you_come_back_again_description": "Don't lose hope, here are some many people around you and help you! KEEP DETERMINED",
-      "Win_or/and_you_com_back_again_description": "Congratulations, you've found it! Don't stop, the journey is really long",
-      "First_time_here_description": "You feel quite confident to become a Computer Science Specialist! Look at those seniors, they are so powerful in this class. But most importantly, don't forget your memory with your first year students, teachers and friends. If you lose it, then find it!",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "exit room": 0
-      },
-      "steps allowed": 20,
-      "items": ["Diary: CSC111's Memory", "Your TCard"]
+      "rooms_contained": ["BA2024", "BA2025"],
+      "items": ["Your STUDENT CARD", "notebook"]
     },
     {
       "id": 3,
       "name": "Bahen Centre 3F",
-      "brief_description": "You are on the third floor of the Bahen Center. Those devices and computers... you don't care. YOU DO CARE ABOUT THE MEMORY",
-      "long_description": "You are on the third floor of the Bahen Centre. Look yourself, you have already been a third year student studying computer science in UofT, this lovely community, you will never forget the people once helped you, you will never lose hope, you are determined to pursue you dream. But ost importantly, don't lose your memory",
+      "brief_description": "You are on the third floor of the Bahen Center.",
+      "long_description": "You are on the third floor of the Bahen Centre. More advanced students work here.",
       "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "go downstairs": 0,
-        "enter room": "e"
+        "go west": 1,
+        "enter room": 301
       },
-      "items": "Silver Treasure Chest",
-      "rooms contained": "Lab X"
+      "items": ["Silver Treasure Chest", "coffee"],
+      "rooms_contained": ["Lab X"],
+      "puzzle": "Solve the Lab X access puzzle"
     },
     {
-      "id": 301,
-      "name": "Lab X",
-      "Lose_and_you_come_back_again_description": "You have already been here, just need one more step! DETERMINATION",
-      "Win_or/and_you_com_back_again_description": "Congratulations, you've found it! Don't stop, the journey is STILL really long",
-      "First_time_here_description": "Omg... lots of sophisticated devices... lots of complicated knowledge... you know you have to fight with it... Lab X is unknown... But the only thing you need to do, is to find the USB!!! Emmm... why the place smelled so weird???",
-      "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "exit room": 0
-      },
-      "steps allowed": 36,
-      "items": ["USB Stick","surstromming"]
-    },
-     {
       "id": 4,
-      "name": "Robarts Library 1F",
+      "name": "Robert Library 1F",
       "brief_description": "Welcome to the Robert Library!",
-      "long_description": "Welcome to the Robert Library! A huge library where many students study here... FOR THE EXAMS AND PAPERS",
+      "long_description": "A huge library where many students study for exams and papers.",
       "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "take elevator": 1
+        "go north": 1,
+        "go south": 5,
+        "Take elevator": 5
       },
-      "non character players": "Businessman",
-      "CONDITION NEEDED TO UNLOCK THIS STAGE": "Your STUDENT CARD"
+      "npc": "Businessman",
+      "condition_to_unlock": "Your STUDENT CARD"
     },
     {
       "id": 5,
-      "name": "Robarts Library 25F",
-      "brief_description": "...&*@^E*@E@E(ERROR(!$)(@&$)!",
-      "long_description": "0100100101000100010101001110001010101001000100101010100101000000101001001001010100101010010100101010010100000101010100101010101010101001010101001110100",
+      "name": "Robert Library 25F",
+      "brief_description": "Top floor of Robert Library!",
+      "long_description": "An eerie, digital glitch atmosphere surrounds you...",
       "available_commands": {
-        "go north": "w",
-        "go east": "d",
-        "go west": "a",
-        "go south": "s",
-        "take elevator": 1
+        "go downstairs": 4
       },
-      "items": "Golden Treasure Chest",
-      "CONDITION NEEDED TO UNLOCK THIS STAGE": "XCard",
-      "rooms contained": "RB2025"
-    },
-    {
-      "id": 501,
-      "name": "RB2025",
-      "brief_description": "WIN",
-      "long_description": "WIN",
-      "available_commands": {
-        "WIN": "WIN"
-      }
+      "items": ["Golden Treasure Chest"],
+      "condition_to_unlock": "XCard"
     }
   ],
 
   "items": [
     {
+      "name": "coffee",
+      "description": "A warm cup of coffee to keep you awake.",
+      "start_position": 3,
+      "target_position": null,
+      "target_points": 0
+    },
+    {
+      "name": "notebook",
+      "description": "A notebook filled with important CS notes.",
+      "start_position": 2,
+      "target_position": null,
+      "target_points": 0
+    },
+    {
       "name": "Professor_S's photo album",
       "description": "Wow, lovely cats!!!",
-      "start_position": 1,
+      "start_position": 101,
       "target_position": 9,
       "target_points": 10,
       "coins": 70
@@ -211,82 +108,82 @@
     {
       "name": "Professor_S's camera",
       "description": "Omg, Sony Alpha 7 IV! SO EXPENSIVE",
-      "start_position": 1,
+      "start_position": 102,
       "target_position": 13,
       "target_points": 24,
       "coins": 230
     },
     {
       "name": "Diary: CSC110's Memory",
-      "description": "You can't believe how time passes, that's your beginning of the journey",
-      "start_position": 1,
+      "description": "Your first steps into CS!",
+      "start_position": 201,
       "target_position": 22,
       "target_points": 25,
       "coins": 150
     },
     {
       "name": "Diary: CSC111's Memory",
-      "description": "You can't believe how time passes, that's your beginning of the journey",
-      "start_position": 1,
+      "description": "Progress in CS!",
+      "start_position": 202,
       "target_position": 25,
       "target_points": 26,
       "coins": 150
     },
     {
-      "name": "USB STICK",
-      "description": "999TB memory storage, where you can put your whole life's memory in it",
-      "start_position": 1,
+      "name": "USB Stick",
+      "description": "A 999TB memory storage stick.",
+      "start_position": 301,
       "target_position": 45,
       "target_points": 27,
       "coins": 1000000000
     },
     {
       "name": "Pie",
-      "description": "YOU ARE DETERMINED, pay tribute to <<Undertale>>",
-      "start_position": 1,
+      "description": "YOU ARE DETERMINED.",
+      "start_position": 103,
       "target_position": "TBD",
       "target_points": 0,
-      "Function": "Unlimited steps for all the rooms"
+      "function": "Unlimited steps for all the rooms"
     },
     {
       "name": "Dry Noodles",
-      "description": "It tastes better when eaten dry, from businessman",
-      "Function": "steps +10 in this room",
+      "description": "Tastes better dry, from the Businessman.",
+      "function": "steps +10 in this room",
       "target_points": 5
     },
     {
       "name": "surstromming",
-      "description": "Vomit... so bad...",
-      "start_position": 1,
+      "description": "Smelly fish...",
+      "start_position": 301,
       "target_position": 44,
       "target_points": 0,
-      "Function": "int(steps/2) for current location"
+      "function": "int(steps/2) for current location"
     },
     {
-      "name": "Your TCard",
-      "description": "Why it is here, oh maybe I forgot somehow...? I can't go library without this",
-      "Function": "Unlock Robert Library",
-      "start_position": 1,
+      "name": "Your STUDENT CARD",
+      "description": "Needed to enter the Robert Library.",
+      "function": "Unlock Robert Library",
+      "start_position": 2,
       "target_position": 9,
       "target_points": 0
     },
     {
       "name": "Silver Treasure Chest",
-      "description": "Wow, a nice looking chest, must be something valuable inside",
-      "start_position": 1,
+      "description": "A nice looking chest!",
+      "start_position": 3,
       "target_position": 30,
       "target_points": 0,
-      "items contained": "key to BA1999",
-      "CONDITION NEEDED TO UNLOCK THIS CHEST": "PasscodeS from businessman"
+      "items_contained": ["key to BA1999"],
+      "condition_to_unlock": "PasscodeS from businessman"
     },
     {
       "name": "Golden Treasure Chest",
       "description": "24K gold made",
-      "start_position": 1,
+      "start_position": 5,
       "target_position": 6,
       "target_points": 0,
-      "items contained": "XCard",
-      "CONDITION NEEDED TO UNLOCK THIS CHEST": "PasscodeG from businessman"
+      "items_contained": ["XCard"],
+      "condition_to_unlock": "PasscodeG from businessman"
     },
     {
       "name": "key to BA1999",
@@ -295,21 +192,42 @@
     {
       "name": "XCard",
       "description": "A card for RB 25F"
+    },
+    {
+      "name": "PasscodeS from businessman",
+      "description": "A special passcode to unlock the Silver Treasure Chest.",
+      "start_position": null,
+      "target_position": null,
+      "target_points": 0,
+      "function": "unlock Silver Treasure Chest"
+    },
+    {
+      "name": "PasscodeG from businessman",
+      "description": "A special passcode to unlock the Golden Treasure Chest.",
+      "start_position": null,
+      "target_position": null,
+      "target_points": 0,
+      "function": "unlock Golden Treasure Chest"
     }
   ],
 
   "npcs": [
     {
       "name": "Professor_S",
-      "Mission items": ["Professor_S's photo album","Professor_S's camera","Diary: CSC110's Memory","Diary: CSC111's Memory", "USB STICK"],
-      "Mission Complete Description": "Congratulations! Now I want you to find..."
+      "location": 1,
+      "dialogue": "Hello student! Have you found my photo album yet?",
+      "mission_items": ["Professor_S's photo album", "Professor_S's camera", "Diary: CSC110's Memory", "Diary: CSC111's Memory", "USB Stick"],
+      "mission_complete_description": "Congratulations! Now I want you to find..."
     },
     {
       "name": "Businessman",
-      "Selling items": ["PasscodeS from businessman","PasscodeG from businessman", "dry noodles"],
-      "PasscodeS from businessman": "188 coins",
-      "PasscodeG from businessman": "388 coins",
-      "dry noodles": "100 coins"
+      "location": 4,
+      "dialogue": "Interested in making a deal? I have exclusive items for sale!",
+      "selling_items": {
+        "PasscodeS from businessman": 188,
+        "PasscodeG from businessman": 388,
+        "Dry Noodles": 100
+      }
     }
   ]
 }
