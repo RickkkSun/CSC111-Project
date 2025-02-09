@@ -94,6 +94,7 @@ class AdventureGame:
         self.game_log.add_event(start_event)
 
         print(f"DEBUG: Player initialized at location {self.player.current_location}")
+        self._move_player(self.player.current_location)
 
     @staticmethod
     def _load_game_data(filename: str) -> tuple[dict[int, Location], list[Item]]:
@@ -149,7 +150,7 @@ class AdventureGame:
                 location=npc_data.get("location"),
                 mission_items=npc_data.get("mission_items", []),
                 mission_complete_description=npc_data.get("mission_complete_description", ""),
-                selling_items=selling_items  # ✅ Now correctly loaded
+                selling_items=selling_items
             ))
 
         return npcs
@@ -170,7 +171,7 @@ class AdventureGame:
             # Ensure items are updated correctly
             loc_obj.items = [item.name for item in self._items if item.start_position == loc_id]
 
-            print(f"DEBUG: Location {loc_id} -> Visited? {loc_obj.visited}")  # ✅ Debugging visit status
+            print(f"DEBUG: Location {loc_id} -> Visited? {loc_obj.visited}")
             return loc_obj
         else:
             print(f"ERROR: Location ID {loc_id} does not exist.")
@@ -217,12 +218,12 @@ class AdventureGame:
             if isinstance(new_location_id, str) and new_location_id.isdigit():
                 new_location_id = int(new_location_id)
 
-            self._move_player(new_location_id)  # ✅ Removed 'game_event_log' argument
+            self._move_player(new_location_id)
         else:
             print("You cannot go there.")
 
     def _move_player(self, new_location_id: int) -> None:
-        """Move the player to a new location."""
+        """Move the player to a new location, showing a long description only on the first visit."""
         if isinstance(new_location_id, int) and new_location_id in self._locations:
             new_location = self._locations[new_location_id]  # Get existing location object
 
@@ -232,20 +233,13 @@ class AdventureGame:
             # Move player
             self.player.current_location = new_location_id
 
-            # Show the correct description
             if not new_location.visited:
-                print(f"DEBUG: Showing long description for {new_location_id}")
+                print(f"DEBUG: First time visiting {new_location_id}, showing long description.")
                 print(new_location.long_description)
-                new_location.visited = True  # ✅ Set visited to True
+                new_location.visited = True
             else:
-                print(f"DEBUG: Showing brief description for {new_location_id}")
+                print(f"DEBUG: Revisiting {new_location_id}, showing brief description.")
                 print(new_location.brief_description)
-
-            print(
-                f"DEBUG: After moving - Location {new_location_id} visited? {new_location.visited}")  # ✅ Check if it updates
-
-        else:
-            print(f"ERROR: Location ID {new_location_id} does not exist.")
 
     def _handle_item_pickup(self, user_input: str) -> None:
         """Handle picking up an item from the environment."""
@@ -323,7 +317,7 @@ class AdventureGame:
             print("There is no NPC selling items here.")
             return
 
-        item_name = user_input[4:].strip()  # Extract item name from command
+        item_name = user_input[4:].strip()
         item_price = found_npc.selling_items.get(item_name)
 
         if not self._can_purchase_item(item_name, item_price):
